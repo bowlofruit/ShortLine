@@ -12,7 +12,7 @@ public class SceneSettings : MonoBehaviour
     }
     private void Update()
     {
-        if(TrainCounter._allTrains == 0)
+        if(TrainCounter._allTrains <= 0)
         {
             Debug.Log("that's all");
             _background.SetActive(true);
