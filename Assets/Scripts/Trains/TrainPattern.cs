@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 
-public class TrainPattern : MonoBehaviour
+public abstract class TrainPattern : MonoBehaviour
 {
-    protected float _speed;
-    protected float _rotSpeed;
-    [SerializeField] protected bool _canCrushed;
-    [SerializeField] protected bool _canFixed;
-    protected bool _finished;
+    private float speed, rotSpeed;
     [SerializeField] protected GameObject[] waypoints;
     [SerializeField] protected int currentWP;
     [SerializeField] protected GameObject _model;
     [SerializeField] protected GameObject _color;
 
+    public abstract bool CanCrushed();
+    public abstract bool CanRepair();
+    public abstract bool LightTrafficBehaviour();
+    protected void SetParams(float speed, float rotSpeed)
+    {
+        this.speed = speed;
+        this.rotSpeed = rotSpeed;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,30 +29,42 @@ public class TrainPattern : MonoBehaviour
 
     protected void Triggers(Collider other)
     {
-        if (other.gameObject.CompareTag("Switch"))
+        MonoBehaviour mono = other.GetComponent<MonoBehaviour>();
+
+        if (other.gameObject.CompareTag("Train"))
         {
-            other.GetComponent<Swap>().RoadSwitch(this.gameObject.GetComponent<Collider>(), ref waypoints, ref currentWP);
-        }
-        if (other.gameObject.CompareTag("Lighter"))
-        {
-            other.GetComponent<TrafficLightSwitcher>().FallTrafficLighter(this.gameObject.GetComponent<Collider>(), ref waypoints, _canCrushed, _canFixed, ref _model);
+            Destroy(this.gameObject);
+            TrainCounter._allTrains -= 1;
         }
         if (other.gameObject.CompareTag("Finish"))
         {
             Finished(other);
         }
-        if (other.gameObject.CompareTag("Crusher"))
+        if (mono is Swap swap)
         {
-            other.GetComponent<Crashed>().CrashOrRepair(_canCrushed, _canFixed);
-            Destroy(this.gameObject);
-            TrainCounter._allTrains -= 1;
+            swap.RoadSwitch(transform.position, ref waypoints, ref currentWP);
         }
-        if (other.gameObject.CompareTag("Train"))
+
+        if (LightTrafficBehaviour() && mono is TrafficLightSwitcher light)
         {
-            Destroy(this.gameObject);
-            Destroy(other.gameObject);
-            TrainCounter._allTrains -= 1;
-        }
+            light.FallTrafficLighter(this, ref waypoints, ref _model);
+        }        
+        if (mono is Crashed crasher)
+        {
+            if (CanCrushed())
+            {
+                crasher.Crash();
+            }
+            if (CanRepair())
+            {
+                crasher.Repair();
+            }            
+            if (CanCrushed() || CanRepair())
+            {
+                Destroy(this.gameObject);
+                TrainCounter._allTrains -= 1;
+            }            
+        }        
     }
 
     private void Finished(Collider other)
@@ -67,7 +83,7 @@ public class TrainPattern : MonoBehaviour
             currentWP++;
 
         Quaternion lookatWP = Quaternion.LookRotation(waypoints[currentWP].transform.position - this.transform.position);
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, lookatWP, _rotSpeed * Time.deltaTime);
-        this.transform.Translate(0, 0, _speed * Time.deltaTime);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, lookatWP, rotSpeed * Time.deltaTime);
+        this.transform.Translate(0, 0, speed * Time.deltaTime);
     }
 }

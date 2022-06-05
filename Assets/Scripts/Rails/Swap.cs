@@ -23,10 +23,10 @@ class Swap : MonoBehaviour
 
     }
 
-    public void RoadSwitch(Collider other, ref GameObject[] waypoints, ref int currentPoint)
+    public void RoadSwitch(Vector3 position, ref GameObject[] waypoints, ref int currentPoint)
     {
         currentPoint = 0;
-        Vector3 direction = other.transform.position - transform.position;
+        Vector3 direction = position - transform.position;
         if (Vector3.Dot(transform.forward, direction) > 0)
         {
             waypoints = _back;

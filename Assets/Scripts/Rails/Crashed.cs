@@ -3,16 +3,12 @@ using UnityEngine;
 public class Crashed : MonoBehaviour
 {
     [SerializeField] GameObject rails;
-    public void CrashOrRepair(bool canCrash, bool canRepair)
+    public void Crash()
     {
-        if (canCrash)
-        {
-            rails.SetActive(false);
-        }
-        if (canRepair)
-        {
-            rails.SetActive(true);
-        }
+        rails.SetActive(false);
     }
-
+    public void Repair()
+    {
+        rails.SetActive(true);
+    }
 }

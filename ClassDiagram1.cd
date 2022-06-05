@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Crashed">
-    <Position X="9.75" Y="1" Width="1.5" />
+    <Position X="9.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAEAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Rails\Crashed.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Swap" Collapsed="true">
-    <Position X="13.25" Y="2.25" Width="1.5" />
+  <Class Name="Swap">
+    <Position X="13.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAAAAAABAAAAAAAAAAAAAJAAAAAAACCA=</HashCode>
       <FileName>Assets\Scripts\Rails\Swap.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TimeSpawner">
-    <Position X="9.75" Y="2.5" Width="1.5" />
+    <Position X="9.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Rails\TimeSpawner.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLightSwitcher" Collapsed="true">
-    <Position X="11.5" Y="3.25" Width="1.5" />
+  <Class Name="TrafficLightSwitcher">
+    <Position X="11.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAADACAAAAAAAASAAAAAAAAAIAAAIAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Rails\TrafficLightSwitcher.cs</FileName>
@@ -35,8 +35,8 @@
       <FileName>Assets\Scripts\SceneSettings.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrainCounter" Collapsed="true">
-    <Position X="13.25" Y="3.25" Width="1.5" />
+  <Class Name="TrainCounter">
+    <Position X="13.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAiAAAABAAAAAAAAAAAAAAAACAAAAAAIAAAA=</HashCode>
       <FileName>Assets\Scripts\TrainCounter.cs</FileName>
@@ -45,29 +45,36 @@
   <Class Name="MadTrain">
     <Position X="6.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAAAAAABAAAAAAAAAAAAAQAAgEA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAQAAAEA=</HashCode>
       <FileName>Assets\Scripts\Trains\MadTrain.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ServerTrain">
     <Position X="8.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAAAAAAAAAAAAAAAABAAAAAAAAAAAAAQAAgEA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAQAAAEA=</HashCode>
       <FileName>Assets\Scripts\Trains\ServerTrain.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SimpleTrain">
     <Position X="4.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAAAAAAAAAAAAAAAABAAAAAAAAAAAAAQAAgEA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAQAAAEA=</HashCode>
       <FileName>Assets\Scripts\Trains\SimpleTrain.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrainPattern">
     <Position X="6.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAQAAAAQQAAIAAAAAgQAAAAACAIAAAAAZAABQAAAAAA=</HashCode>
+      <HashCode>AAQAAAgQQAAIAAAAAgQAAIAAiAIIAQAAQAAAAQAAAAA=</HashCode>
       <FileName>Assets\Scripts\Trains\TrainPattern.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tutorials">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAACACAAAAAAAACAAAAAAAAAAAAAQACAAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tutorials.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

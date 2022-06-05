@@ -28,22 +28,19 @@ public class TrafficLightSwitcher : MonoBehaviour
         GetComponent<Renderer>().material.color = _currentColor;
     }
 
-    public void FallTrafficLighter(Collider other, ref GameObject[] waypoints, bool madtrain, bool repairtrain, ref GameObject model)
+    public void FallTrafficLighter(TrainPattern train, ref GameObject[] waypoints, ref GameObject model)
     {
-        if (_trainRun || madtrain)
-        {
-            return;
-        }
-        Vector3 direction = other.transform.position - transform.position;
+        if (_trainRun) return;
+        Vector3 direction = train.transform.position - transform.position;
         if (Vector3.Dot(transform.forward, direction) > 0)
         {
-            other.transform.Rotate(0, 180, 0);
+            train.transform.Rotate(0, 180, 0);
             waypoints = _point1;
             model.transform.Rotate(0, 180, 0);
         }
         if (Vector3.Dot(transform.forward, direction) < 0)
         {
-            other.transform.Rotate(0, 180, 0);
+            train.transform.Rotate(0, 180, 0);
             waypoints = _point2;
             model.transform.Rotate(0, 180, 0);
         }
