@@ -47,7 +47,7 @@ public class TrainPattern : MonoBehaviour
         {
             Destroy(this.gameObject);
             Destroy(other.gameObject);
-            TrainCounter._allTrains -= 2;
+            TrainCounter._allTrains -= 1;
         }
     }
 
@@ -65,9 +65,6 @@ public class TrainPattern : MonoBehaviour
     {
         if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 3)
             currentWP++;
-
-        if (currentWP >= waypoints.Length)
-            this.transform.position = new Vector3(0, 200, 0);
 
         Quaternion lookatWP = Quaternion.LookRotation(waypoints[currentWP].transform.position - this.transform.position);
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, lookatWP, _rotSpeed * Time.deltaTime);
